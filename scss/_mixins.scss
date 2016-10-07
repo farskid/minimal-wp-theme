@@ -1,0 +1,19 @@
+@mixin media($breakpoint, $dir:'max') {
+  @if $dir == 'max' {
+    @media (max-width: $breakpoint) {
+      @content;
+    }
+  }
+  @if $dir == 'min' {
+    @media (min-width: $breakpoint) {
+      @content;
+    }
+  }
+}
+
+
+@mixin media-orientation($orientation) {
+  @media (orientation: $orientation) {
+    @content;
+  }
+}
