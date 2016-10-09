@@ -1,0 +1,116 @@
+
+$post-container: 75%;
+$post-container-tablet: 90%;
+
+.cat-title {
+  font-weight: 400;
+  padding-bottom: 5px;
+  border-bottom: 1px dotted $gray-dark;
+  font-size: 24px;
+  text-align: left;
+  width: $post-container;
+  margin: 0 auto;
+  padding-top: 40px;
+  a {
+    color: $blue-dark;
+    float: right;
+    font-weight: 700;
+    font-size: 14px;
+    margin-top: 10px;
+  }
+  @media (max-width: $mid-max) {
+    width: $post-container-tablet;
+  }
+}
+
+.cat-list {
+  padding-top: 40px;
+  margin: 0 auto;
+  width: $post-container;
+  padding-bottom: 70px;
+  @media (max-width: $mid-max) {
+    width: $post-container-tablet;
+  }
+}
+.cat-item {
+  background-image: linear-gradient(to right, $gray-light, $white);
+  padding: 15px;
+  margin: 0 auto 20px;
+  box-shadow: 7px 7px 9px -3px $shadow;
+  border-radius: 5px;
+  //> a {
+  //  display: block;
+  //  color: inherit;
+  //}
+}
+
+.post-avatar {
+  width: 144px;
+  height: 144px;
+  float: left;
+  display: block;
+  @media (max-width: $mid-max) {
+    float: none;
+    margin-bottom: 20px;
+    height: auto;
+    padding-left: 15px;
+  }
+}
+
+.post-avatar-inner {
+  overflow: hidden;
+  border-radius: 50%;
+  height: 100%;
+  position: relative;
+  border: 3px solid $white;
+  background-color: $gray-light;
+  &::before {
+    content: url(../img/default.svg);
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    transform: translateY(-50%);
+  }
+  img {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+  }
+}
+
+.post-info {
+  padding: 0 30px 0 174px;
+  text-align: left;
+  display: block;
+  > a {
+    color: inherit;
+    display: block;
+  }
+  @media (max-width: $mid-max) {
+    padding-left: 30px;
+  }
+
+  .title {
+    font-weight: 300;
+    font-size: 24px;
+    margin: 10px auto;
+    text-shadow: 1px 1px 1px $blue-dark;
+  }
+
+  .date {
+    color: $gray-dark;
+    font-size: 14px;
+    font-weight: 200;
+    font-style: italic;
+  }
+
+  .desc {
+    font-weight: 200;
+    line-height: 1.5;
+  }
+
+}

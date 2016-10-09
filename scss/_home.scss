@@ -1,14 +1,23 @@
 .home {
   position: relative;
   width: 600px;
-  height: 500px;
-  margin: 100px auto 0;
+  height: 600px;
+  margin: 0 auto;
+  padding-top: 100px;
+  @media (max-width: $mid-max) {
+    padding-top: 20px;
+    height: 520px;
+  }
   @media (max-width: 600px) and (min-width: $mobile-min) {
     width: 100%;
-    min-height: 500px;
-    height: auto;
+    //height: auto;
     margin-top: 50px;
   }
+}
+
+.home-container {
+  height: 100%;
+  position: relative;
 }
 
 .home-title {
@@ -37,11 +46,6 @@
       display: inline-block;
       width: 30%;
       height: auto;
-    }
-  }
-  @media (orientation: landscape) {
-    &.home-item {
-      color: red;
     }
   }
   img {
@@ -85,6 +89,14 @@
   background-color: $blue-light;
   border: 3px solid $blue-dark;
   border-radius: 50%;
+  transition-property: transform;
+  transition-timing-function: ease;
+  transition-duration: .3s;
+  transform: rotateZ(0) scale(1);
+  &:hover {
+    border: 3px dashed $blue-dark;
+    transform: rotateZ(10deg) scale(1.1);
+  }
 }
 
 .avatar {

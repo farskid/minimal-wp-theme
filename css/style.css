@@ -451,8 +451,28 @@ html, body {
   height: 100%;
 }
 
+body.is-home {
+  overflow-y: hidden;
+}
+
 *, *::after, *::before {
   box-sizing: border-box;
+}
+
+a {
+  color: #92d8e8;
+  text-decoration: none;
+}
+
+.no-post {
+  font-size: 50px;
+  color: #eee;
+  text-shadow: 2px 2px 1px #92d8e8;
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
 }
 
 /*! Hint.css (base version) - v2.4.0 - 2016-09-17
@@ -979,21 +999,33 @@ html, body {
   margin: 0 auto;
   max-width: 991px;
   text-align: center;
+  position: relative;
+  min-height: 100%;
 }
 
 .home {
   position: relative;
   width: 600px;
-  height: 500px;
-  margin: 100px auto 0;
+  height: 600px;
+  margin: 0 auto;
+  padding-top: 100px;
+}
+@media (max-width: 768px) {
+  .home {
+    padding-top: 20px;
+    height: 520px;
+  }
 }
 @media (max-width: 600px) and (min-width: 320px) {
   .home {
     width: 100%;
-    min-height: 500px;
-    height: auto;
     margin-top: 50px;
   }
+}
+
+.home-container {
+  height: 100%;
+  position: relative;
 }
 
 .home-title {
@@ -1024,11 +1056,6 @@ html, body {
     display: inline-block;
     width: 30%;
     height: auto;
-  }
-}
-@media (orientation: landscape) {
-  .home-item.home-item {
-    color: red;
   }
 }
 .home-item img {
@@ -1079,6 +1106,19 @@ html, body {
   background-color: #e5f9fd;
   border: 3px solid #92d8e8;
   border-radius: 50%;
+  -webkit-transition-property: -webkit-transform;
+          transition-property: transform;
+  -webkit-transition-timing-function: ease;
+          transition-timing-function: ease;
+  -webkit-transition-duration: .3s;
+          transition-duration: .3s;
+  -webkit-transform: rotateZ(0) scale(1);
+          transform: rotateZ(0) scale(1);
+}
+.options-inner:hover {
+  border: 3px dashed #92d8e8;
+  -webkit-transform: rotateZ(10deg) scale(1.1);
+          transform: rotateZ(10deg) scale(1.1);
 }
 
 .avatar img {
@@ -1088,4 +1128,248 @@ html, body {
   border: 3px solid #92d8e8;
   border-radius: 50%;
   padding: 2px 0 0 1px;
+}
+
+.cat-title {
+  font-weight: 400;
+  padding-bottom: 5px;
+  border-bottom: 1px dotted #666;
+  font-size: 24px;
+  text-align: left;
+  width: 75%;
+  margin: 0 auto;
+  padding-top: 40px;
+}
+.cat-title a {
+  color: #92d8e8;
+  float: right;
+  font-weight: 700;
+  font-size: 14px;
+  margin-top: 10px;
+}
+@media (max-width: 768px) {
+  .cat-title {
+    width: 90%;
+  }
+}
+
+.cat-list {
+  padding-top: 40px;
+  margin: 0 auto;
+  width: 75%;
+  padding-bottom: 70px;
+}
+@media (max-width: 768px) {
+  .cat-list {
+    width: 90%;
+  }
+}
+
+.cat-item {
+  background-image: -webkit-linear-gradient(left, #e8e8e8, #fff);
+  background-image: linear-gradient(to right, #e8e8e8, #fff);
+  padding: 15px;
+  margin: 0 auto 20px;
+  box-shadow: 7px 7px 9px -3px #dedddd;
+  border-radius: 5px;
+}
+
+.post-avatar {
+  width: 144px;
+  height: 144px;
+  float: left;
+  display: block;
+}
+@media (max-width: 768px) {
+  .post-avatar {
+    float: none;
+    margin-bottom: 20px;
+    height: auto;
+    padding-left: 15px;
+  }
+}
+
+.post-avatar-inner {
+  overflow: hidden;
+  border-radius: 50%;
+  height: 100%;
+  position: relative;
+  border: 3px solid #fff;
+  background-color: #e8e8e8;
+}
+.post-avatar-inner::before {
+  content: url(../img/default.svg);
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+}
+.post-avatar-inner img {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+}
+
+.post-info {
+  padding: 0 30px 0 174px;
+  text-align: left;
+  display: block;
+}
+.post-info > a {
+  color: inherit;
+  display: block;
+}
+@media (max-width: 768px) {
+  .post-info {
+    padding-left: 30px;
+  }
+}
+.post-info .title {
+  font-weight: 300;
+  font-size: 24px;
+  margin: 10px auto;
+  text-shadow: 1px 1px 1px #92d8e8;
+}
+.post-info .date {
+  color: #666;
+  font-size: 14px;
+  font-weight: 200;
+  font-style: italic;
+}
+.post-info .desc {
+  font-weight: 200;
+  line-height: 1.5;
+}
+
+.single .cat-item {
+  margin-top: 100px;
+  padding: 0 15px;
+}
+.single .post-avatar {
+  float: none;
+  width: 100%;
+  height: 90px;
+  display: block;
+  position: relative;
+}
+.single .post-avatar > a {
+  position: absolute;
+  top: -5px;
+  right: -15px;
+  -webkit-transform: translateY(-100%);
+          transform: translateY(-100%);
+}
+.single .post-avatar-inner {
+  border-width: 5px;
+  width: 144px;
+  height: 144px;
+  padding-top: 0;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+}
+.single .post-info {
+  padding-left: 30px;
+}
+.single .post-info .title {
+  font-size: 30px;
+  margin-bottom: 20px;
+}
+.single .post-info .desc {
+  margin-top: 10px;
+}
+
+.desc {
+  padding-bottom: 20px;
+}
+.desc p {
+  margin: 16px auto;
+}
+.desc a {
+  color: #279fba;
+  display: inline-block;
+  margin: 0 5px;
+}
+.desc ul, .desc ol {
+  padding-left: 40px;
+  margin: 10px auto;
+}
+.desc h1, .desc h2, .desc h3, .desc h4, .desc h5, .desc h6 {
+  margin: 10px auto;
+}
+.desc h1 {
+  font-size: 24px;
+}
+.desc h2 {
+  font-size: 20px;
+}
+.desc h3 {
+  font-size: 18px;
+}
+.desc h4 {
+  font-size: 16px;
+}
+.desc h5 {
+  font-size: 14px;
+}
+.desc h6 {
+  font-size: 12px;
+}
+
+.footer {
+  font-weight: 100 !important;
+  font-size: 14px;
+  letter-spacing: 1px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  text-align: center;
+  height: 30px;
+  width: 100%;
+}
+.footer a {
+  color: #666;
+  font-weight: 900;
+  color: #000;
+}
+.footer::before {
+  content: '<';
+  margin-right: 5px;
+}
+.footer::after {
+  content: '/>';
+  margin-left: 5px;
+}
+
+.attachments-list {
+  list-style: none;
+  padding: 0 30px;
+  margin: 10px auto 20px;
+  display: block;
+  text-align: left;
+  position: relative;
+}
+.attachments-list > li {
+  display: inline-block;
+  padding: 0 5px;
+}
+.attachments-list a {
+  display: block;
+  padding: 3px 6px;
+  background-color: #fff;
+  color: #666;
+  font-size: 14px;
+  border-radius: 3px;
+  margin-bottom: 5px;
+  margin-left: -5px;
+}
+
+.cat-attachments {
+  padding: 0;
+  margin-bottom: 0;
+  text-align: center;
 }

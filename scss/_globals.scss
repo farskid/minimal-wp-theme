@@ -3,6 +3,25 @@ html, body {
   height: 100%;
 }
 
+body.is-home {
+  overflow-y: hidden;
+}
+
 *, *::after, *::before {
   box-sizing: border-box;
+}
+
+a {
+  color: $blue-dark;
+  text-decoration: none;
+}
+
+.no-post {
+  font-size: 50px;
+  color: #eee;
+  text-shadow: 2px 2px 1px $blue-dark;
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }

@@ -1,5 +1,32 @@
 <?php
 
+  /* === Add Thumbnail Support === */
+  add_theme_support( 'post-thumbnails' );
+
+  /* === Attachment Handler === */
+  /*function attachments() {
+  /*  $attachments = new Attachments( 'attachments' ); /* pass the instance name */
+  /*  if( !$attachments->exist() ) {
+/*    return false;
+/*  } else {
+/*    $ret = new stdClass();
+/*    while( $attachments->get() ) {
+/*      array->$attachments->field( 'title' )) = $attachments->url();
+/*    }
+/*    return $ret;
+/*  }
+  }*/
+
+  /* === Show Admin Bar (Only for Admin) === */
+  add_action('after_setup_theme', 'remove_admin_bar');
+
+  function remove_admin_bar() {
+    if (!current_user_can('administrator') && !is_admin()) {
+      show_admin_bar(false);
+    }
+  }
+
+  /* === Adding Avatar Field to Settings === */
   $avatar_setting = new avatar_setting();
 
   class avatar_setting {
@@ -16,6 +43,7 @@
     }
   }
 
+  /* === Adding Full Name Field to Settings === */
   $fullname_setting = new fullname_setting();
 
   class fullname_setting {
