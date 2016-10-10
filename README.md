@@ -15,17 +15,17 @@ The theme depends on installation of wordpress `Attachments` plugin. You can ins
 If you do NOT want to use the plugin, Just remove below part from `category.php` and `single.php` and `page.php` files.
 ```
 <?php if (has_post_thumbnail(get_the_ID())): ?>
-          <?php the_post_thumbnail(array(300,300), array('class' => '', 'alt' => get_the_title())); ?>
-          <?php endif; ?>
-        </div>
-        <?php $attachments = new Attachments( 'attachments' ); /* pass the instance name */ ?>
-        <?php if( $attachments->exist() ) : ?>
-        <ul class="attachments-list cat-attachments">
-        <?php while( $attachments->get() ) : ?>
-          <li>
-            <a target="_blank" download href="<?php echo $attachments->url(); ?>"><?php echo $attachments->field( 'title' ); ?></a>
-          </li>
-        <?php endwhile; ?>
-        </ul>
-        <?php endif; ?>
+<?php the_post_thumbnail(array(300,300), array('class' => '', 'alt' => get_the_title())); ?>
+<?php endif; ?>
+  </div>
+  <?php $attachments = new Attachments( 'attachments' ); /* pass the instance name */ ?>
+  <?php if( $attachments->exist() ) : ?>
+    <ul class="attachments-list cat-attachments">
+    <?php while( $attachments->get() ) : ?>
+      <li>
+        <a target="_blank" download href="<?php echo $attachments->url(); ?>"><?php echo $attachments->field( 'title' ); ?></a>
+      </li>
+    <?php endwhile; ?>
+    </ul>
+   <?php endif; ?>
 ```
