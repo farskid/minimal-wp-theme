@@ -28,4 +28,6 @@ If you do NOT want to use the plugin, Just remove below part from `category.php`
     <?php endwhile; ?>
     </ul>
    <?php endif; ?>
-```
+```   
+## License
+The theme is MIT licensed. Could also be used in commercial use only with mention to the author `Farzad YZ` and a link to his webiste 'http://farzadyz.co
