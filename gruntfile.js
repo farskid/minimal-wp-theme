@@ -1,4 +1,6 @@
 'use strict';
+const sass = require('node-sass');
+
 // Be sure to change the relative path next time for grunt
 module.exports = function (grunt) {
   // scripts
@@ -6,7 +8,7 @@ module.exports = function (grunt) {
     sass: {
       dist: {
         options: {
-          style: 'expanded'
+          implementation: sass
         },
         files: {
           'css/style.css': 'scss/index.scss'
@@ -30,7 +32,7 @@ module.exports = function (grunt) {
 
 
   //load tasks and register tasks
-  grunt.loadNpmTasks('grunt-contrib-sass');
+  grunt.loadNpmTasks('grunt-sass');
   grunt.loadNpmTasks('grunt-autoprefixer');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.registerTask('default', ['sass', 'autoprefixer', 'watch']);
